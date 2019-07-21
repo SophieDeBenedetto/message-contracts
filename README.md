@@ -11,14 +11,14 @@ Code in this repo supports conversion to Ruby classes. We can add Elixir support
 * Convert your `.proto` file into Ruby!
 
 ```
-docker-compose run converter <language> <name of message>
+docker-compose run converter <language> <commands/events> <name of message>
 ```
 
 ex -
-Where there is a file `lib/src/create_batch.proto`, and I want a Ruby class:
+Where there is a file that defines a command `lib/src/commands/create_batch.proto`, and I want a Ruby class:
 
 ```
-docker-compose run converter ruby create_batch
+docker-compose run converter ruby commands create_batch
 ```
 * Find your file in `lib/build/ruby/`
 
