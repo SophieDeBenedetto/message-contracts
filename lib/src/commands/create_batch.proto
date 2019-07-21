@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package learn_ipc.commands;
+
+message CreateBatch {
+  int32 user_id = 1;
+  int32 correlation_id = 2;
+  string uuid = 3;
+  string type = 4;
+
+
+  message Data {
+    string iteration = 1;
+  }
+
+  Data data = 5;
+}

@@ -3,16 +3,22 @@ Protobuf allows us to define message contracts/format in a centralized location 
 
 In this manner, we can maintain shared message contracts across applications and squads during our development flows.
 
-Code in this repo supports conversion to Ruby classes. We can add Elixir support with [this package.](https://github.com/tony612/protobuf-elixir) 
+Code in this repo supports conversion to Ruby classes. We can add Elixir support with [this package.](https://github.com/tony612/protobuf-elixir)
 
 ## Getting Started
 
-* `brew install protobuf`
 * Define your `.proto` message contracts in `lib/src/`
 * Convert your `.proto` file into Ruby!
 
 ```
-./scripts/convert_from_protoc.sh ruby <name_of_file>
+docker-compose run converter <language> <name of message>
+```
+
+ex -
+Where there is a file `lib/src/create_batch.proto`, and I want a Ruby class:
+
+```
+docker-compose run converter ruby create_batch
 ```
 * Find your file in `lib/build/ruby/`
 
