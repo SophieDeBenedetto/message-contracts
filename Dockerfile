@@ -40,9 +40,9 @@ RUN apk add --no-cache curl && \
         apk del curl && \
         chmod a+x /usr/bin/protoc
 
-RUN mix escript.install hex protobuf
+RUN mix escript.install hex protobuf --force
 
-ENV PATH=${PATH}:/usr/local/bin/protoc-gen-elixir
+ENV PATH=${PATH}:/opt/app/.mix/escripts
 
 COPY . /app
 WORKDIR /app
