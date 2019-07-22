@@ -38,14 +38,4 @@ Ipc::Publishers::BatchPublisher.publish(message)
 ```
 
 ## Questions
-* How to get default values for fields? For example, I want `type` field to default to `"CreateBatch"`. Shouldn't be the responsibility of the person using this class and instantiating a message to know that `type` should match class name.
-* Even though I've marked the fields as `required`, nothing seems to be enforcing these requirements. Do we want to require fields and how should it behave when required fields are missing?
-  * Can't figure it out. Doesn't blow up when I initialize w/o required fields, when I decode/encoded without required fields...
-* You MUST decode your encoded message with the same message class the encoded it. Options:
-  * Encode messages to JSON, not bytes
-  * Leverage `meta` key of Rabbitmq to include message type
-  * Leverage the Rabbitmq `routing_key`
-* Best practices for leveraging this tool?
-  * Define messages in central repo (here)
-  * Use provided script to convert to your preferred language
-  * Then...what? Copy paste file into your app's source code?
+* Do we want to leverage GitHub Actions to keep message classes in sync? How can we programmatically determine where and how to open PRs when message contracts change? Some kind of config for repos against which to open PRs and naming conventions/file structure conventions. Like, some kind of config that says: `repo: Ironboard, lang: ruby` and then PR will automatically get opened against in Ironboard against `lib/messages/<commands/events>`? 
